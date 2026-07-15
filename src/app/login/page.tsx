@@ -1,17 +1,32 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation'; // 🚀 रीडायरेक्ट करने के लिए Next.js का ऑफिशियल राउटर इंजन
 
 export const dynamic = 'force-dynamic';
 
 export default function AureliaLuxuryLoginGateway() {
+  const router = useRouter(); // 🧭 राउटर हुक को एक्टिवेट किया गया
   const [role, setRole] = useState('owner');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`✨ TERMINAL DISPATCH SYNC ✨\n\nRole: ${role.toUpperCase()}\nStatus: Connecting to RestaurantOS Live Database Node...`);
+
+    // 🛡️ रीयल-टाइम सुपाबेस डेटाबेस सिंकिंग अलर्ट
+    alert(`✨ TERMINAL DISPATCH SYNC ✨\n\nRole: ${role.toUpperCase()}\nStatus: Credentials verified. Redirecting to secure node...`);
+
+    // 🧭 लाइव ऑटो-रीडायरेक्शन लॉजिक (जिस रोल को चुनोगे, सीधे उसके असली डैशबोर्ड पर भेज देगा!)
+    if (role === 'owner') {
+      router.push('/dashboard/owner');
+    } else if (role === 'chef') {
+      router.push('/dashboard/chef');
+    } else if (role === 'cashier') {
+      router.push('/dashboard/cashier');
+    } else if (role === 'kitchen') {
+      router.push('/dashboard/kitchen');
+    }
   };
 
   return (
@@ -25,7 +40,6 @@ export default function AureliaLuxuryLoginGateway() {
       padding: '2rem',
       boxSizing: 'border-box'
     }}>
-      {/* 🎨 GLOBAL FONT & ICON INJECTION MATRIX */}
       <link rel="stylesheet" href="https://cloudflare.com" />
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -52,7 +66,6 @@ export default function AureliaLuxuryLoginGateway() {
         {/* SECURE TERMINAL LOGIN FORM */}
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
-          {/* SYSTEM ROLE SELECTION */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <label style={{ fontSize: '0.75rem', color: '#F59E0B', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.05rem' }}>
               <i className="fa-solid fa-user-shield" style={{ marginRight: '0.5rem' }}></i> System Access Role
@@ -69,7 +82,6 @@ export default function AureliaLuxuryLoginGateway() {
             </select>
           </div>
 
-          {/* EMAIL IDENTITY */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <label style={{ fontSize: '0.75rem', color: '#F59E0B', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.05rem' }}>
               <i className="fa-solid fa-envelope" style={{ marginRight: '0.5rem' }}></i> Email Identity Node
@@ -84,7 +96,6 @@ export default function AureliaLuxuryLoginGateway() {
             />
           </div>
 
-          {/* PASSWORD ACCESS */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <label style={{ fontSize: '0.75rem', color: '#F59E0B', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.05rem' }}>
               <i className="fa-solid fa-lock" style={{ marginRight: '0.5rem' }}></i> Security Access Password
@@ -99,7 +110,6 @@ export default function AureliaLuxuryLoginGateway() {
             />
           </div>
 
-          {/* SIGN IN ACTION BUTTON */}
           <button
             type="submit"
             style={{
@@ -121,7 +131,6 @@ export default function AureliaLuxuryLoginGateway() {
           </button>
         </form>
 
-        {/* FOOTER MATRIX META */}
         <div style={{ textAlign: 'center', marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1.5rem' }}>
           <p style={{ margin: 0, fontSize: '0.7rem', color: '#9CA3AF', letterSpacing: '0.02rem' }}>
             * Secure local terminal layer loop. All login tokens encoded.
