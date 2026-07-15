@@ -1,22 +1,19 @@
-import './globals.css';
+import React from 'react';
+import { AureliaProvider } from '@/context/AureliaContext'; // या आपके फोल्डर के अनुसार AureliaErpContext
 
 export const metadata = {
-  title: 'Aurelia Enterprise Operating System',
-  description: 'Premium Hospitality Network',
+  title: 'Aurelia | Palatial 7-Star Dining International',
+  description: 'Connected to RestaurantOS Cloud Network Secured.',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="stylesheet" href="https://cloudflare.com" />
-      </head>
       <body>
-        {children}
+        {/* 👑 पूरे प्रोजेक्ट मैट्रिक्स को ग्लोबल कॉन्टेक्स्ट प्रदाता से सुरक्षित रैप किया गया है */}
+        <AureliaProvider>
+          {children}
+        </AureliaProvider>
       </body>
     </html>
   );
