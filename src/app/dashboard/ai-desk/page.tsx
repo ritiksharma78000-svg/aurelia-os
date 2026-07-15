@@ -1,6 +1,9 @@
 'use client';
 
 import { useAurelia } from '@/context/AureliaContext';
+// 🚀 यह कमान Vercel बिल्ड मशीन को बिना एरर के तुरंत बायपास करने के लिए मजबूर करेगी
+export const dynamic = 'force-dynamic';
+
 
 export default function AIDeskPage() {
   const { orders, menu } = useAurelia();
@@ -10,7 +13,7 @@ export default function AIDeskPage() {
     const todaySales = orders
       .filter((o) => o.status === 'Paid')
       .reduce((acc, curr) => acc + curr.grandTotal, 0);
-    
+
     // AI Forecast: Weekend load factor + baseline trends
     return todaySales > 0 ? Math.round(todaySales * 1.25) : 4500;
   };
@@ -26,7 +29,7 @@ export default function AIDeskPage() {
   return (
     <div className="min-h-screen bg-stone-950 text-stone-100 p-6">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Header Grid Section */}
         <div className="border-b border-stone-800 pb-4 mb-8">
           <h1 className="text-3xl font-light text-amber-500 font-serif tracking-wide">🧠 AURELIA AI ENGINE</h1>
@@ -35,7 +38,7 @@ export default function AIDeskPage() {
 
         {/* AI Predictive Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          
+
           {/* Card 1: Sales Forecasting */}
           <div className="bg-stone-900 border border-stone-800 p-5 rounded-2xl relative overflow-hidden shadow-xl">
             <div className="absolute top-0 right-0 bg-amber-500/10 text-amber-500 font-mono text-[9px] px-2 py-0.5 rounded-bl-lg font-bold">FORECAST</div>
@@ -76,8 +79,8 @@ export default function AIDeskPage() {
               <strong className="text-amber-500 font-mono">AureliaAI:</strong> "Hello Manager. I notice that <span className="text-stone-200 font-medium">Cheese Burst Pizza</span> is outperforming trends by 40% today. I recommend triggering a WhatsApp coupon for desserts to increase average order values."
             </p>
             <div className="mt-4 pt-3 border-t border-stone-900 flex gap-2">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 readOnly
                 placeholder="Ask AI Copilot for sales suggestions..."
                 className="w-full bg-stone-900 border border-stone-800 text-stone-400 text-xs rounded-xl px-4 py-2 focus:outline-none cursor-not-allowed"

@@ -6,7 +6,8 @@ import { MenuItem } from '@/types';
 import SpinWin from '@/components/wow/SpinWin';
 import AiMenu from '@/components/luxury/AiMenu';
 import BuildMeal from '@/components/luxury/BuildMeal';
-
+// 🚀 यह कमान Vercel बिल्ड मशीन को बिना एरर के तुरंत बायपास करने के लिए मजबूर करेगी
+export const dynamic = 'force-dynamic';
 
 interface QRMenuProps {
   params: { number: string };
