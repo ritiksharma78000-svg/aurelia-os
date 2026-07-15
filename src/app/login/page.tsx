@@ -6,18 +6,16 @@ import { useRouter } from 'next/navigation'; // 🚀 रीडायरेक्
 export const dynamic = 'force-dynamic';
 
 export default function AureliaLuxuryLoginGateway() {
-  const router = useRouter(); // 🧭 राउटर हुक को एक्टिवेट किया गया
+  const router = useRouter(); // 🧭 राउटर हुक एक्टिवेशन
   const [role, setRole] = useState('owner');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // 👁️ पासवर्ड दिखाने का स्टेट
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 🛡️ रीयल-टाइम सुपाबेस डेटाबेस सिंकिंग अलर्ट
-    alert(`✨ TERMINAL DISPATCH SYNC ✨\n\nRole: ${role.toUpperCase()}\nStatus: Credentials verified. Redirecting to secure node...`);
-
-    // 🧭 लाइव ऑटो-रीडायरेक्शन लॉजिक (जिस रोल को चुनोगे, सीधे उसके असली डैशबोर्ड पर भेज देगा!)
+    // 🧭 लाइव ऑटो-रीडायरेक्शन लॉजिक (अलर्ट पूरी तरह से बंद कर दिया गया है ❌)
     if (role === 'owner') {
       router.push('/dashboard/owner');
     } else if (role === 'chef') {
@@ -66,6 +64,7 @@ export default function AureliaLuxuryLoginGateway() {
         {/* SECURE TERMINAL LOGIN FORM */}
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
+          {/* ROLE SELECT */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <label style={{ fontSize: '0.75rem', color: '#F59E0B', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.05rem' }}>
               <i className="fa-solid fa-user-shield" style={{ marginRight: '0.5rem' }}></i> System Access Role
@@ -82,6 +81,7 @@ export default function AureliaLuxuryLoginGateway() {
             </select>
           </div>
 
+          {/* EMAIL INPUT */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <label style={{ fontSize: '0.75rem', color: '#F59E0B', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.05rem' }}>
               <i className="fa-solid fa-envelope" style={{ marginRight: '0.5rem' }}></i> Email Identity Node
@@ -96,20 +96,32 @@ export default function AureliaLuxuryLoginGateway() {
             />
           </div>
 
+          {/* PASSWORD INPUT WITH SHOW/HIDE EYE ICON */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <label style={{ fontSize: '0.75rem', color: '#F59E0B', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.05rem' }}>
               <i className="fa-solid fa-lock" style={{ marginRight: '0.5rem' }}></i> Security Access Password
             </label>
-            <input
-              type="password"
-              required
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              style={{ background: 'rgba(17, 24, 39, 0.6)', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '0.9rem', color: '#FFFFFF', borderRadius: '0.75rem', fontSize: '0.9rem' }}
-            />
+            <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+              <input
+                type={showPassword ? 'text' : 'password'} // 👁️ टाइप लाइव बदलता है
+                required
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                style={{ background: 'rgba(17, 24, 39, 0.6)', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '0.9rem 3.5rem 0.9rem 0.9rem', color: '#FFFFFF', borderRadius: '0.75rem', fontSize: '0.9rem', width: '100%', boxSizing: 'border-box' }}
+              />
+              {/* 👁️ इंटरैक्टिव आई बटन */}
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{ position: 'absolute', right: '1rem', background: 'none', border: 'none', color: showPassword ? '#F59E0B' : '#9CA3AF', cursor: 'pointer', fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0 }}
+              >
+                <i className={showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'}></i>
+              </button>
+            </div>
           </div>
 
+          {/* SUBMIT BUTTON */}
           <button
             type="submit"
             style={{
