@@ -1,6 +1,7 @@
 'use client';
 
-import '@/app/globals.css';
+import '../globals.css';
+
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAureliaErp } from '@/context/AureliaErpContext';
