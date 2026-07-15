@@ -1,5 +1,6 @@
 import React from 'react';
-import { AureliaErpProvider } from '@/context/AureliaErpContext'; // 🚀 आपके असली ERP कॉन्टेक्स्ट का सही पाथ और नाम
+import { AureliaProvider } from '@/context/AureliaContext';
+import { AureliaErpProvider } from '@/context/AureliaErpContext';
 
 export const metadata = {
   title: 'Aurelia | Palatial 7-Star Dining International',
@@ -10,10 +11,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        {/* 👑 पूरे प्रोजेक्ट को असली AureliaErpProvider चक्रव्यूह से रैप किया गया है */}
-        <AureliaErpProvider>
-          {children}
-        </AureliaErpProvider>
+        {/* 👑 दोनों प्रदाताओं को एक साथ सुरक्षित नेस्ट कर दिया गया है ताकि 0 Errors आएँ */}
+        <AureliaProvider>
+          <AureliaErpProvider>
+            {children}
+          </AureliaErpProvider>
+        </AureliaProvider>
       </body>
     </html>
   );
