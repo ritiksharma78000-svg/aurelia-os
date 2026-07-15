@@ -1,14 +1,19 @@
 import React from 'react';
-import { AureliaProvider } from '@/context/AureliaContext';
-// Note: यदि आपके फोल्डर में नाम AureliaErpContext है, तो बस ऊपर और नीचे उसे रिप्लेस कर दें
+import { AureliaErpProvider } from '@/context/AureliaErpContext'; // 🚀 आपके असली ERP कॉन्टेक्स्ट का सही पाथ और नाम
+
+export const metadata = {
+  title: 'Aurelia | Palatial 7-Star Dining International',
+  description: 'Connected to RestaurantOS Cloud Network Secured.',
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <AureliaProvider>
+        {/* 👑 पूरे प्रोजेक्ट को असली AureliaErpProvider चक्रव्यूह से रैप किया गया है */}
+        <AureliaErpProvider>
           {children}
-        </AureliaProvider>
+        </AureliaErpProvider>
       </body>
     </html>
   );
