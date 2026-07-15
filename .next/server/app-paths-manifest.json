@@ -1,5 +1,4 @@
 {
-  "/api/print/route": "app/api/print/route.js",
   "/page": "app/page.js",
   "/login/page": "app/login/page.js",
   "/dashboard/waiter/page": "app/dashboard/waiter/page.js",

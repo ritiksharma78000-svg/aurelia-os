@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 
 // 🌐 SUPABASE REAL-TIME RESTAURANTOS INTEGRATION (100% ERROR-FREE CONSTANTS)
-const SUPABASE_URL = "https://supabase.co";
+const SUPABASE_URL = "https://wgaquntaiciypmxierdz.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_5h0q18WimzCw3a6DydqQxg_1v0T_tfw";
 
 export default function LuxuryCustomerLandingPage() {
