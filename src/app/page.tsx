@@ -8,14 +8,14 @@ export const dynamic = 'force-dynamic';
 export default function AureliaMasterControlHub() {
   const router = useRouter();
 
-  // 🌐 MASTER ROUTING VECTOR MATRIX
+  // 🌐 MASTER ROUTING VECTOR MATRIX (अब इसमें ग्राहक लैंडिंग पेज भी शामिल है!)
   const controlModules = [
+    { title: "Customer Landing Page", desc: "View 7-Star Website, Luxury Aesthetics, Table Booking Form", icon: "fa-hotel", path: "/home", color: "#10B981" },
     { title: "Super Owner Control", desc: "Change Prices, Edit Dishes, Manage Staff Access", icon: "fa-crown", path: "/dashboard/owner", color: "#F59E0B" },
     { title: "Waiter Menu Terminal", desc: "Take Table Orders, Live Digital Menu, Punch KOT", icon: "fa-mobile-screen-button", path: "/dashboard/waiter", color: "#3B82F6" },
-    { title: "Chef Kitchen Queue", desc: "View Active KOT Tickets, Dispatch Prepared Food", icon: "fa-kitchen-set", path: "/dashboard/kitchen", color: "#10B981" },
+    { title: "Chef Kitchen Queue", desc: "View Active KOT Tickets, Dispatch Prepared Food", icon: "fa-kitchen-set", path: "/dashboard/kitchen", color: "#F59E0B" },
     { title: "Cashier Billing Counter", desc: "Track Live Revenue, Total Vault, Settled Invoices", icon: "fa-file-invoice-dollar", path: "/dashboard/cashier", color: "#EC4899" },
-    { title: "Secure Staff Login", desc: "Central Staff Authentication Gateway Layer", icon: "fa-user-shield", path: "/login", color: "#8B5CF6" },
-    { title: "Global ERP Settings", desc: "Configure KOT Printer IP, System Logs, Database", icon: "fa-gears", path: "/dashboard/settings", color: "#6B7280" }
+    { title: "Secure Staff Login", desc: "Central Staff Authentication Gateway Layer", icon: "fa-user-shield", path: "/login", color: "#8B5CF6" }
   ];
 
   return (
@@ -27,7 +27,6 @@ export default function AureliaMasterControlHub() {
       padding: '4rem 2rem',
       boxSizing: 'border-box'
     }}>
-      {/* 🎨 LUXURY CSS INTEGRATION */}
       <link rel="stylesheet" href="https://cloudflare.com" />
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -42,7 +41,7 @@ export default function AureliaMasterControlHub() {
         <div style={{ textAlign: 'center', marginBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '2.5rem' }}>
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '3rem', margin: '0 0 0.5rem 0', letterSpacing: '0.3rem' }}>AURELIA INTERNATIONAL</h1>
           <p style={{ color: '#F59E0B', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.2rem', margin: 0, fontWeight: 700 }}>
-            <i className="fa-solid fa-circle-dot" style={{ marginRight: '0.5rem', animation: 'pulse 2s infinite', color: '#10B981' }}></i> Global Hotel Operations Main Command Center
+            <i className="fa-solid fa-circle-dot" style={{ marginRight: '0.5rem', color: '#10B981' }}></i> Global Hotel Operations Main Command Center
           </p>
         </div>
 
@@ -62,7 +61,6 @@ export default function AureliaMasterControlHub() {
                 alignItems: 'start'
               }}
             >
-              {/* DYNAMIC MODULE ICON */}
               <div style={{
                 background: 'rgba(255,255,255,0.03)',
                 padding: '1.2rem',
@@ -76,7 +74,6 @@ export default function AureliaMasterControlHub() {
                 <i className={`fa-solid ${module.icon}`}></i>
               </div>
 
-              {/* TEXT DISPATCH */}
               <div style={{ flex: 1 }}>
                 <h3 style={{ margin: '0 0 0.4rem 0', fontSize: '1.3rem', fontFamily: "'Playfair Display', serif", fontWeight: 700, color: '#FFF' }}>
                   {module.title}
@@ -92,7 +89,6 @@ export default function AureliaMasterControlHub() {
           ))}
         </div>
 
-        {/* CLOUD LEDGER FOOTER META */}
         <div style={{ textAlign: 'center', marginTop: '5rem', color: '#4B5563', fontSize: '0.75rem', letterSpacing: '0.05rem' }}>
           AURELIA RESTAURANTOS • SECURED HARDWARE NETWORK ID: LOCK-7001 • LIVE CLOUD CORES ACTIVE
         </div>
