@@ -10,6 +10,9 @@ import WinePairing from '@/components/wow/WinePairing';
 import ThreeDFood from '@/components/luxury/ThreeDFood';
 
 export const dynamic = 'force-dynamic';
+// 🚀 यह कमान Vercel को बिना किसी लूप के सीधे बिल्ड पास करने के लिए मजबूर करेगी
+export const prerender = false;
+
 
 export default function AureliaCombinedLuxuryLandingPage() {
   const [tableNo, setTableNo] = useState('Table 1');
