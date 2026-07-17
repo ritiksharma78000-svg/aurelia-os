@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import nextDynamic from 'next/dynamic'; // 🚀 नाम बदलकर nextDynamic कर दिया गया है ताकि नेम-क्लैश ख़त्म हो जाए
 
-// 👑 Next.js का आधिकारिक डायनेमिक कॉन्फ़िगरेशन नियम (पूरी फ़ाइल में सिर्फ एक बार डिक्लेयर्ड)
+// 👑 Next.js का आधिकारिक डायनेमिक कॉन्फ़िगरेशन नियम
 export const dynamic = 'force-dynamic';
 export const prerender = false;
 
@@ -93,7 +93,7 @@ export default function AureliaCombinedLuxuryLandingPage() {
         </div>
       </div>
 
-      {/* 🍳 4. LIVE COOKING SHOW & EXPERIENCES (त्रुटिहीन शुद्ध प्रारूप) */}
+      {/* 🍳 4. LIVE COOKING SHOW & EXPERIENCES */}
       <LiveCooking />
 
       {/* 🍷 5. PREMIUM WINE PAIRING MODULE */}
