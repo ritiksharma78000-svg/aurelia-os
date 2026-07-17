@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 export default function AureliaMasterControlHub() {
   const router = useRouter();
 
-  // 🌐 MASTER ROUTING VECTOR MATRIX (अब इसमें ग्राहक लैंडिंग पेज भी शामिल है!)
+  // 🌐 MASTER ROUTING VECTOR MATRIX
   const controlModules = [
     { title: "Customer Landing Page", desc: "View 7-Star Website, Luxury Aesthetics, Table Booking Form", icon: "fa-hotel", path: "/home", color: "#10B981" },
     { title: "Super Owner Control", desc: "Change Prices, Edit Dishes, Manage Staff Access", icon: "fa-crown", path: "/dashboard/owner", color: "#F59E0B" },
@@ -27,6 +27,7 @@ export default function AureliaMasterControlHub() {
       padding: '4rem 2rem',
       boxSizing: 'border-box'
     }}>
+      {/* 🎨 CLEAN LIGHTWEIGHT CSS ONLY (नो एनिमेशन लूप्स टू कीप ब्राउज़र सुपरफास्ट) */}
       <link rel="stylesheet" href="https://cloudflare.com" />
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -41,7 +42,7 @@ export default function AureliaMasterControlHub() {
         <div style={{ textAlign: 'center', marginBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '2.5rem' }}>
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '3rem', margin: '0 0 0.5rem 0', letterSpacing: '0.3rem' }}>AURELIA INTERNATIONAL</h1>
           <p style={{ color: '#F59E0B', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.2rem', margin: 0, fontWeight: 700 }}>
-            <i className="fa-solid fa-circle-dot" style={{ marginRight: '0.5rem', color: '#10B981' }}></i> Global Hotel Operations Main Command Center
+            <span style={{ width: '8px', height: '8px', background: '#10B981', borderRadius: '50%', display: 'inline-block', marginRight: '0.5rem' }}></span> Global Hotel Operations Main Command Center
           </p>
         </div>
 
