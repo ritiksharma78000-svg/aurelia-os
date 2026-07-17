@@ -1,8 +1,6 @@
 import React from 'react';
 
-// 👑 यह जादुई मास्टर कमान पूरे /home फ़ोल्डर के सभी एआई और एनिमेटेड लूप्स को सीधे लाइव डायनेमिक मोड पर लॉक कर देगी!
-export const dynamic = 'force-dynamic';
-
+// 👑 Aurelia OS का शुद्ध पैरेंट लेआउट, बिना किसी डुप्लिकेट कॉन्फ़िगरेशन टकराव के
 export default function HomeFolderLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
