@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
+import { QRCodeSVG } from 'qrcode.react'; // 🚀 बिना किसी इंटरनेट API के सीधे स्थानीय रूप से QR कोड जनरेट करने का इंजन
 
 export const dynamic = 'force-dynamic';
 
 export default function AureliaTableStationMatrix() {
-  const [activeQrUrl, setActiveQrUrl] = useState<string | null>(null);
+  const [activeUrl, setActiveUrl] = useState<string | null>(null);
   const [activeStation, setActiveStation] = useState<string>('');
 
   // 🏛️ आपके 5 मुख्य स्टेशन्स का लाइव स्टेटिक डेटाबेस
@@ -17,12 +18,10 @@ export default function AureliaTableStationMatrix() {
     { id: '5', name: 'Station 5', status: 'OCCUPIED', capacity: '4 Guests', info: 'Guests Dined: 2 • Assigned: Karan Joshi', qrId: 'QR-005' },
   ];
 
-  // 🎯 QR जेनरेटर ट्रिगर इंजन (Google Infographics API Sync)
   const handlePrintQr = (stationId: string, stationName: string) => {
+    // 🔗 ग्राहक का असली 7-Star लाइव ऑर्डरिंग पाथ सिंक करना
     const targetUrl = `https://vercel.app{stationId}`;
-    // 🚀 बिना किसी थर्ड पार्टी टूल के सीधे हाई-क्वालिटी क्यूआर इमेज लिंक तैयार करना
-    const qrImageUrl = `https://googleapis.com{encodeURIComponent(targetUrl)}`;
-    setActiveQrUrl(qrImageUrl);
+    setActiveUrl(targetUrl);
     setActiveStation(stationName);
   };
 
@@ -58,10 +57,10 @@ export default function AureliaTableStationMatrix() {
           </button>
         </div>
 
-        {/* 🎛️ GRAPHIC GRID FOR STATIONS */}
+        {/* GRAPHIC GRID FOR STATIONS */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
           {stations.map((st) => (
-            <div key={st.id} style={{ background: '#FFF', borderRadius: '1rem', padding: '1.8rem', border: '1px solid #E2E8F0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', position: 'relative' }}>
+            <div key={st.id} style={{ background: '#FFF', borderRadius: '1rem', padding: '1.8rem', border: '1px solid #E2E8F0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
                 <h3 style={{ margin: 0, fontSize: '1.2rem', color: '#0B0F19', fontWeight: 700 }}>{st.name}</h3>
                 <span style={{ fontSize: '0.65rem', fontWeight: 700, padding: '0.2rem 0.6rem', borderRadius: '0.3rem', background: st.status === 'AVAILABLE' ? '#E6F4EA' : '#FCE8E6', color: st.status === 'AVAILABLE' ? '#137333' : '#C5221F' }}>
@@ -87,36 +86,33 @@ export default function AureliaTableStationMatrix() {
           ))}
         </div>
 
-        {/* 🔮 DYNAMIC MODAL POPUP: LUXURY PRINT-READY QR COMPONENT */}
-        {activeQrUrl && (
-          <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(11, 15, 25, 0.85)', zIndex: 999, display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center' }}>
+        {/* 🔮 DYNAMIC MODAL POPUP: SECURE CLIENT-SIDE QR ENGINE */}
+        {activeUrl && (
+          <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(11, 15, 25, 0.85)', zIndex: 999, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <div style={{ background: '#0B0F19', border: '2px solid #F59E0B', borderRadius: '2.5rem', padding: '3rem', width: '360px', textAlign: 'center', boxShadow: '0 25px 50px -12px rgba(245,158,11,0.25)', position: 'relative' }}>
 
-              {/* CLOSE MODAL BUTTON */}
               <button
-                onClick={() => setActiveQrUrl(null)}
+                onClick={() => setActiveUrl(null)}
                 style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: 'none', border: 'none', color: '#9CA3AF', fontSize: '1.2rem', cursor: 'pointer' }}
               >
                 <i className="fa-solid fa-xmark"></i>
               </button>
 
-              {/* BRAND AUTHENTICATION */}
               <h2 style={{ fontFamily: "'Playfair Display', serif", margin: '0 0 0.3rem 0', color: '#FFF', fontSize: '1.8rem', letterSpacing: '0.2rem' }}>AURELIA</h2>
               <span style={{ fontSize: '0.7rem', color: '#F59E0B', textTransform: 'uppercase', letterSpacing: '0.15rem', display: 'block', marginBottom: '2rem', fontWeight: 700 }}>{activeStation} Digital Menu</span>
 
-              {/* RENDERED LIVE QR CODE IMAGE */}
+              {/* 🏆 LOCAL GENERATION SYSTEM (अब बिल्कुल असली QR यहाँ चमकेगा!) */}
               <div style={{ background: '#FFF', padding: '1.5rem', borderRadius: '1.5rem', display: 'inline-block', boxShadow: '0 10px 25px rgba(0,0,0,0.5)', marginBottom: '2rem' }}>
-                <img src={activeQrUrl} alt="Aurelia Table QR" style={{ width: '200px', height: '200px', display: 'block' }} />
+                <QRCodeSVG value={activeUrl} size={200} fgColor="#0B0F19" bgColor="#FFFFFF" level="H" />
               </div>
 
               <span style={{ color: '#9CA3AF', fontSize: '0.8rem', display: 'block', marginBottom: '2rem', letterSpacing: '0.05rem' }}>Scan code to launch 7-Star fine dine basket layer.</span>
 
-              {/* ACTION COMMANDS */}
               <div style={{ display: 'flex', gap: '1rem' }}>
                 <button onClick={() => window.print()} style={{ flex: 1, padding: '0.8rem', background: '#F59E0B', color: '#0B0F19', border: 'none', borderRadius: '0.8rem', fontWeight: 700, cursor: 'pointer', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05rem' }}>
                   <i className="fa-solid fa-print" style={{ marginRight: '0.4rem' }}></i> Print Card
                 </button>
-                <button onClick={() => setActiveQrUrl(null)} style={{ flex: 1, padding: '0.8rem', background: 'rgba(255,255,255,0.05)', color: '#FFF', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '0.8rem', fontWeight: 700, cursor: 'pointer', textTransform: 'uppercase', fontSize: '0.75rem' }}>
+                <button onClick={() => setActiveUrl(null)} style={{ flex: 1, padding: '0.8rem', background: 'rgba(255,255,255,0.05)', color: '#FFF', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '0.8rem', fontWeight: 700, cursor: 'pointer', textTransform: 'uppercase', fontSize: '0.75rem' }}>
                   Dismiss
                 </button>
               </div>
