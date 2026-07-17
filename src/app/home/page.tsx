@@ -1,6 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic'; // 🚀 प्रिरेंडर लूप को हमेशा के लिए क्रैश करने का इंजन
+
+// 🏆 वर्सेल को कड़ा निर्देश कि इस पेज की कोई स्टेटिक फाइल न बनाई जाए
+export const dynamicConfig = 'force-dynamic';
+export const prerender = false;
+
 
 // 👑 आपके पुराने सभी आलीशान विज़ुअल कम्पोनेंट्स का इम्पोर्ट मैट्रिक्स
 import Hero from '@/components/luxury/Hero';
