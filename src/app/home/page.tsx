@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import nextDynamic from 'next/dynamic'; // 🚀 नाम बदलकर nextDynamic कर दिया गया है ताकि एरर क्रैश हो जाए
+import nextDynamic from 'next/dynamic'; // 🚀 नाम बदलकर nextDynamic कर दिया गया है ताकि नेम-क्लैश ख़त्म हो जाए
 
-// 🏆 Next.js का आधिकारिक डायनेमिक क्रेडेंशियल नियम
+// 👑 Next.js का आधिकारिक डायनेमिक कॉन्फ़िगरेशन नियम (पूरी फ़ाइल में सिर्फ एक बार डिक्लेयर्ड)
 export const dynamic = 'force-dynamic';
-
+export const prerender = false;
 
 // 👑 आपके पुराने सभी आलीशान विज़ुअल कम्पोनेंट्स का इम्पोर्ट मैट्रिक्स
 import Hero from '@/components/luxury/Hero';
@@ -13,11 +13,6 @@ import LiveCooking from '@/components/wow/LiveCooking';
 import SpinWin from '@/components/wow/SpinWin';
 import WinePairing from '@/components/wow/WinePairing';
 import ThreeDFood from '@/components/luxury/ThreeDFood';
-
-export const dynamic = 'force-dynamic';
-// 🚀 यह कमान Vercel को बिना किसी लूप के सीधे बिल्ड पास करने के लिए मजबूर करेगी
-export const prerender = false;
-
 
 export default function AureliaCombinedLuxuryLandingPage() {
   const [tableNo, setTableNo] = useState('Table 1');
@@ -98,7 +93,7 @@ export default function AureliaCombinedLuxuryLandingPage() {
         </div>
       </div>
 
-      {/* 🍳 4. LIVE COOKING SHOW & EXPERIENCES */}
+      {/* 🍳 4. LIVE COOKING SHOW & EXPERIENCES (त्रुटिहीन शुद्ध प्रारूप) */}
       <LiveCooking />
 
       {/* 🍷 5. PREMIUM WINE PAIRING MODULE */}
